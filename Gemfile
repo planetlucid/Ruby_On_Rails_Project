@@ -65,3 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rubocop", "~> 0.79.0"
 
 gem "dotenv-rails", "~> 2.7"
+
+gem "omniauth", "~> 1.9"
+
+gem "omniauth-github", "~> 1.4"
