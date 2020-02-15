@@ -27,4 +27,8 @@ Le Concept
         9901 - 10000 
 
 **Implementation Ideas:**
-    • Power Rank - dropdown with prepopulated Power Rank or text field with limit of 1-100
+    • Power Rank - dropdown with prepopulated Power Rank or text field that has the range 
+        of 1-10000
+   
+    • when a number is chosen it dynamically display a word that describes their strengh 
+        level like 'Mutant & Meta-Human'
