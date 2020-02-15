@@ -32,3 +32,30 @@ Le Concept
    
     • when a number is chosen it dynamically display a word that describes their strengh 
         level like 'Mutant & Meta-Human'
+
+**Scratchpad of Code**
+
+Rank Hero App - 
+
+
+'User' = 'User'[ probably should stay the same]
+    • has_many :posts(Actually Hero)
+    • has_many :comments(Actually Team)
+    • has_many :commented_posts(no clue if this stay), through :comments(Actually Team)
+
+'Post' = 'Hero'
+    • belongs_to :user
+    • has_many :comments(Actually Teams) 
+    • has_many :categories (Actually Comics), through :comments(Teams) ---(*Still need to JOIN THIS)
+    • has_many :users, through :comments(Actually Team)
+    • Title = Hero's Name
+    • Content = the Hero's rank
+
+'Comment' = 'Team'  
+    • belongs_to :user ---(*Still need to JOIN THIS)
+    • belongs_to :hero
+    • belongs_to :comic
+
+'Category' = 'Comic'
+    • Name of Comic
+    • has_many :posts(Actually Heros)
