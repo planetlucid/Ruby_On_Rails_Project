@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
 
   def welcome
-    byebug
+    #byebug
   end
 
   #protected is a stage bedtween private and public 
