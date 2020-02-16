@@ -1,0 +1,9 @@
+  <h1>Heroes Index</h1>
+
+<ul>
+<% @heros.each do |hero| %>
+    <li><%= link_to hero.name, hero_path(hero) %></li>
+<% end %>
+</ul>
+
+<%= link_to :'New Hero', new_hero_path %>
