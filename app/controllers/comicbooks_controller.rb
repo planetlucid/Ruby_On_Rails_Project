@@ -4,15 +4,27 @@ class ComicbooksController < ApplicationController
   end
 
   def create
+    @comicbook = Comicbook.new(comicbook_params)
+    if @comicbook.save
+      redirect_to comicbooks_url
+    else
+      render :new
+    end
   end
 
   def new
     @comicbook = Comicbook.new
+    @comicbook.person = Person.new
+    @comicbook.squad = Squad.new
   end
 
   def edit
   end
 
   def update
+  end
+
+  def comicbook_params
+    params.require(:comicbook).permit(:title, :person_attributes => [:name], :squad_attributes => [:name])
   end
 end

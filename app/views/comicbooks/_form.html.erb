@@ -9,6 +9,12 @@
             <%= person.text_field :name %>
         <% end %>
     </p>
+    <p>
+    <%= f.fields_for :squad do |squad|  %>
+        <%= squad.label :squad %>
+        <%= squad.text_field :name %>
+    <% end %>
+    </p>
 
     <%= f.submit %>
 <% end %>
