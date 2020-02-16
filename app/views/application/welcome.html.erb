@@ -1,3 +1,22 @@
-<h1>Hi</h1>
-
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Account</title>
+        <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+        <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,800&display=swap" rel="stylesheet">
+    </head>  
+    <h1>Rank Hero</h1>
+    <div class="container purple topBotomBordersIn">
+        <a href="#">HEROES</a>
+        <a href="#">CREATE</a>
+        <a href="/users/edit">ACCOUNT</a>
+    </div>
+        
+    <h2 class="greeting">Welcome 'Add Username' </h2>
+    <div class="vertical_spacer"><br></div>
+    <h2>Add your favorite heroes, their comic appearances, team affiliation and power level.</h2>
+    <div class="vertical_spacer"><br></div>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+</html>

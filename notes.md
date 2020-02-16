@@ -37,11 +37,29 @@ Le Concept
 
 Rank Hero App - 
 
+---------
 
-'User' = 'User'[ probably should stay the same]
+Current set-up
+
+Hero
+    • has_many :teams
+    • has_many :comics, through: :teams
+Appointment
+    • belongs_to :hero
+    • belongs_to :comic
+Student
+    • has_many :teams
+    • has_many :heros, through: :teams
+
+----------
+Possible Model Set-up....
+'User'
     • has_many :posts(Actually Hero)
     • has_many :comments(Actually Team)
-    • has_many :commented_posts(no clue if this stay), through :comments(Actually Team)
+    • has_many :categories(Actually Comic)
+    • username - done with Devise gem
+    • email - done with Devise gem
+    • password_digest - done with Devise gem
 
 'Post' = 'Hero'
     • belongs_to :user

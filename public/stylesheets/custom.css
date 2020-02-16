@@ -1,13 +1,13 @@
 body {
     background: #e2e2e2;
     margin: 40px;
-    background-image:url('/images/food.jpg');
+    background-image:url('/images/subtle_white_feathers.png');
 }
 
 h1,
 .h1 {
   font-size: 36px;
-  color: #e2e2e2;
+  color: #057a8c;
 }
 
 h3,
@@ -89,7 +89,7 @@ div.container
 {
     font-family: Poppins;
     margin: 0 auto;
-	padding: 3em 3em;
+	padding: 1em 3em;
   text-align: center;
   width: 100%;
 }
@@ -108,7 +108,7 @@ div.container a
 
 .purple
 {
-    background: #0a0a0b76;
+    background: #05798c76;
 }
 
 /* Content */
@@ -130,6 +130,56 @@ div.action {
 }
 
 a:hover {
-  color: aqua;
+  color: #002467;
   text-decoration: none;
+}
+
+.vertical_spacer {
+padding: 1em;
+}
+
+/*avigation Style*/
+.nav ul {
+  list-style: none;
+  background-color: #444;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+ 
+.nav a:hover {
+  background-color: #005f5f;
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  
+}
+
+.greeting {
+  text-align: center;
 }
