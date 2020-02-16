@@ -1,7 +1,7 @@
 <h1>Your Heroes</h1>
 <% @persons.each do |person| %>
     <h2><% person.name %></h2>
-    <% render partial: 'comicbooks/all_comicbook', locals: {comicbook: person.comicbooks }%>
-   
+    <% render partial: 'comicbooks/all_comicbooks', locals: {comicbooks: person.comicbooks }%>
+    
 <% end %>
 

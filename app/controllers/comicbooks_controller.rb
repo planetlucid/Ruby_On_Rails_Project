@@ -7,6 +7,7 @@ class ComicbooksController < ApplicationController
   end
 
   def new
+    @comicbook = Comicbook.new
   end
 
   def edit

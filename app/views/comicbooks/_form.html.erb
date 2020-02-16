@@ -1,0 +1,14 @@
+<%= form_for comicbook do |f| %>
+    <p>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </p>
+    <p>
+        <%= f.fields_for :person do |person|  %>
+            <%= person.label :person %>
+            <%= person.text_field :name %>
+        <% end %>
+    </p>
+
+    <%= f.submit %>
+<% end %>
