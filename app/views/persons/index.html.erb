@@ -1,2 +1,19 @@
-<h1>Persons#index</h1>
-<p>Find me in app/views/persons/index.html.erb</p>
+<h1>Your Heroes</h1>
+<% @persons.each do |person| %>
+    <table>
+        <tr>
+        <th>Comicbook</th>
+        <th>Hero</th>
+        <th>Squad</th>
+        </tr>
+        <h2><% person.name %></h2>
+        <% person.comicbooks.each do |comicbook| %>
+            <tr>
+                <td><%= comicbook.title %></td>
+                <td><%= comicbook.person.name %></td>
+                <td><%= comicbook.squad.name %></td>
+            </tr>
+        <% end %>
+    </table>
+<% end %>
+

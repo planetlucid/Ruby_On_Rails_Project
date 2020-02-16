@@ -4,11 +4,20 @@
     <title>Rankhero</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="UTF-8">
+    <title>Account</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800&display=swap" rel="stylesheet">
   </head>
-
+    <h1>Rank Hero</h1>
+    <div class="container purple topBotomBordersIn">
+        <a href="/heros">YOUR HEROES</a>
+        <a href="/heros/new">ADD HERO</a>
+        <a href="/users/edit">YOUR ACCOUNT</a>
+    </div>
   <body>
     <%= yield %>
   </body>

@@ -1,5 +1,6 @@
 class ComicbooksController < ApplicationController
   def index
+    @comicbooks = Comicbook.all
   end
 
   def create
