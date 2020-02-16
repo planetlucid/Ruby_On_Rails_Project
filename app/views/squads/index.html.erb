@@ -1,18 +1,5 @@
 <h1>Squads</h1>
-<% @persons.each do |squad| %>
-    <table>
-        <tr>
-        <th>Comicbook</th>
-        <th>Hero</th>
-        <th>Squad</th>
-        </tr>
-        <h2><% squad.name %></h2>
-        <% squad.comicbooks.each do |comicbook| %>
-            <tr>
-                <td><%= comicbook.title %></td>
-                <td><%= comicbook.person.name %></td>
-                <td><%= comicbook.squad.name %></td>
-            </tr>
-        <% end %>
-    </table>
+<% @squads.each do |squad| %>
+    <h2><% squad.name %></h2>
+    <% render partial: 'comicbooks/all_comicbook', locals: {comicbook: squad.comicbooks }%>
 <% end %>
