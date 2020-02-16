@@ -8,6 +8,7 @@ class ComicbooksController < ApplicationController
     if @comicbook.save
       redirect_to comicbooks_url
     else
+      @errors = @comicbook.errors.full_messages
       render :new
     end
   end
