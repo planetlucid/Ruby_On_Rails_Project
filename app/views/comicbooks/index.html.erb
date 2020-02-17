@@ -8,7 +8,7 @@
             <th>Squad</th>
         </tr>
             <% @comicbooks.each do |comicbook| %>
-            <%= render partial: 'comicbooks/all_comicbooks', locals: {comicbooks: @comicbooks} %>
+            <!-- <%= render partial: 'comicbooks/all_comicbooks', locals: {comicbooks: @comicbooks} %> -->
             <%= render partial: 'comicbook', locals: {comicbook: comicbook }%>
             <% end %>
     </table>
