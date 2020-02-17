@@ -4,6 +4,7 @@ class ComicbooksController < ApplicationController
   end
 
   def create
+    byebug
     @comicbook = Comicbook.new(comicbook_params)
     if @comicbook.save
       redirect_to comicbooks_url
@@ -12,6 +13,10 @@ class ComicbooksController < ApplicationController
       render :new
     end
   end
+
+  # def show
+  #   @comicbook = Comicbook.find(comicbook_params[:id])
+  # end
 
   def new
     @comicbook = Comicbook.new
@@ -30,6 +35,6 @@ class ComicbooksController < ApplicationController
   end
 
   def comicbook_params
-    params.require(:comicbook).permit(:title, :person_attributes => [:name], :squad_attributes => [:name])
+    params.require(:comicbook).permit(:title, person_attributes: [:name], squad_attributes: [:name])
   end
 end

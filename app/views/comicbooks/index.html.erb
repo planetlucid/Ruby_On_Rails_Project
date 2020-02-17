@@ -1,15 +1,16 @@
 <h1>Comicbooks</h1>
-<%raw @comicbooks %>
+<!-- <%raw @comicbooks %> -->
+
     <table>
         <tr>
             <th>Title</th>
             <th>Hero</th>
             <th>Squad</th>
         </tr>
-    
-        <% @comicbooks.each do |comicbook| %>
-        <% render partial: 'comicbook', locals: {comicbook: comicbook }%>
-        <% end %>
+            <% @comicbooks.each do |comicbook| %>
+            <%= render partial: 'comicbooks/all_comicbooks', locals: {comicbooks: @comicbooks} %>
+            <%= render partial: 'comicbook', locals: {comicbook: comicbook }%>
+            <% end %>
     </table>
 
 
