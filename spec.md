@@ -28,7 +28,7 @@ Rules
 
     • You must include a nested index or show route 
 
-8   To DO
+8   To DO √
     Your forms should correctly display validation errors.
 
 9   Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.--- √

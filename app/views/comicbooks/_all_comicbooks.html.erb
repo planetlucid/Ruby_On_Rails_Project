@@ -4,5 +4,7 @@
         <th>Hero</th>
         <th>Squad</th>
     </tr>
+    <% comicbooks.each do |comicbook| %>
     <% render partial: 'comicbooks/comicbook', locals: {comicbook: comicbook }%>
+    <% end %>
 </table>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rankhero</title>
+    <h1 class="header">Rankhero</h1>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,15 +12,22 @@
     <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800&display=swap" rel="stylesheet">
   </head>
-    <h1>Rank Hero</h1>
-    <div class="container purple topBotomBordersIn">
-        <a href="/heros">YOUR HEROES</a>
-        <a href="/comicbooks/new">ADD COMICBOOKS</a>
-        <a href="/heros/new">ADD HERO</a>
-        <a href="/users/edit">YOUR ACCOUNT</a>
-    </div>
-    
-  <body>
+    <body>
+        <div class="container purple topBotomBordersIn">
+          <a href="/">HOME</a>
+          <a href="/persons">YOUR HERO LIST</a>
+          <a href="/comicbooks/new">ADD ENTRY</a>
+          <!-- <a href="/persons/new">ADD HERO</a> -->
+          <a href="/users/edit">YOUR ACCOUNT</a>
+        </div>
+    <!-- Error message goes here -->
+    <% if @errors %>
+        <ul>
+          <% @errors.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <%= yield %>
   </body>
 </html>

@@ -20,6 +20,10 @@ class ComicbooksController < ApplicationController
   end
 
   def edit
+    unless @comicbook = Comicbook.find_by_id(params[:id])
+      @error = ['Comicbook Not Found']
+      redirect_to comicbooks_url
+    end
   end
 
   def update

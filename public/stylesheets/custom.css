@@ -5,10 +5,13 @@ body {
 }
 
 h1,
-.h1 {
-  font-size: 36px;
+.h1,.sitelogo {
+  font-size: 40px;
   color: #057a8c;
+  text-decoration: none;
 }
+
+
 
 h3,
 .h3 {
@@ -129,6 +132,11 @@ div.action {
   color: #e2e2e2;
 }
 
+a {
+  color: #002467;
+  text-decoration: none;
+}
+
 a:hover {
   color: #002467;
   text-decoration: none;
@@ -183,3 +191,4 @@ body {
 .greeting {
   text-align: center;
 }
+
