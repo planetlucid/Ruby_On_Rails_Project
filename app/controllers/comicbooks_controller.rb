@@ -37,4 +37,10 @@ class ComicbooksController < ApplicationController
   def comicbook_params
     params.require(:comicbook).permit(:title, person_attributes: [:name], squad_attributes: [:name])
   end
+
+  def destroy
+    @comicbook = Comicbook.find(params[:id])
+    @comicbook.destroy
+    redirect_to comicbooks_path, data: { confirm: "Really?" }
+  end
 end
