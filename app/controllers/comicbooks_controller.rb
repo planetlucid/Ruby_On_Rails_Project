@@ -1,11 +1,16 @@
 class ComicbooksController < ApplicationController
+  before_action :set_comicbook, only: [:show]
+
+
   def index
+    ## Before nesting
     @comicbooks = Comicbook.all
+  
   end
 
   def create
-    # byebug
     @comicbook = Comicbook.new(comicbook_params)
+    
     if @comicbook.save
       redirect_to comicbooks_url
     else
@@ -32,6 +37,14 @@ class ComicbooksController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def set_comicbook
+    unless @comicbook = Comicbook.find_by_id(params[:id])
+      redirect_to comicbooks_path
+    end
   end
 
   def comicbook_params

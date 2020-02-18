@@ -1,0 +1,9 @@
+<h1><%= @person.name %></h1>
+
+<ul>
+    <% @comicbooks.each do |comicbook| %>
+        <li><%= link_to comicbook.title, person_comicbook_path(comicbook.person,comicbook) %></li>
+    <% end %>
+</ul>
+
+<%= link_to 'Add New', new_person_comicbook_path(@person) %>

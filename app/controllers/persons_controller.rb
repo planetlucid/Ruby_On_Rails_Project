@@ -1,5 +1,5 @@
 class PersonsController < ApplicationController
-  byebug
+  # byebug
   def index
     @persons = Person.all
   end
