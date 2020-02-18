@@ -185,10 +185,21 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
-  
-}
+  }
 
 .greeting {
   text-align: center;
 }
 
+.tableheader, th {
+  text-align: left;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+
+td {
+  padding-right: 50px;
+  text-align: left;
+
+}
