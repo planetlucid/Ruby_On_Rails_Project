@@ -1,16 +1,18 @@
-<h1>Comicbooks</h1>
+<h1>Your List</h1>
 <!-- <%raw @comicbooks %> -->
 
     <table >
         <tr >
-            <th class="tableheader">Title</th>
             <th class="tableheader">Hero</th>
-            <th class="tableheader">Squad</th>
+            <th class="tableheader">Team</th>
+            <th class="tableheader">Comicbooks</th>
         </tr>
             <% @comicbooks.each do |comicbook| %>
             <!-- <%= render partial: 'comicbooks/all_comicbooks', locals: {comicbooks: @comicbooks} %> -->
             <%= render partial: 'comicbook', locals: {comicbook: comicbook }%>
             <% end %>
     </table>
+    <div class="vertical_spacer"><br></div>
+    <%= link_to :'New Book', new_comicbook_path %>
 
 

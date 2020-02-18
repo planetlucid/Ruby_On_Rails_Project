@@ -1,9 +1,5 @@
 <%= form_for comicbook do |f| %>
     <p>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </p>
-    <p>
         <%= f.fields_for :person do |person|  %>
             <%= person.label :person %>
             <%= person.text_field :name %>
@@ -11,9 +7,14 @@
     </p>
     <p>
     <%= f.fields_for :squad do |squad|  %>
-        <%= squad.label :squad %>
+        <%= squad.label :team %>
         <%= squad.text_field :name %>
     <% end %>
+    </p>
+
+    <p>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
     </p>
    
 

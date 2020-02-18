@@ -4,7 +4,7 @@ class ComicbooksController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     @comicbook = Comicbook.new(comicbook_params)
     if @comicbook.save
       redirect_to comicbooks_url
@@ -14,9 +14,9 @@ class ComicbooksController < ApplicationController
     end
   end
 
-  # def show
-  #   @comicbook = Comicbook.find(comicbook_params[:id])
-  # end
+  def show
+    @comicbook = Comicbook.find(comicbook_params[:id])
+  end
 
   def new
     @comicbook = Comicbook.new

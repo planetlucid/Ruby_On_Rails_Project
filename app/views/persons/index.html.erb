@@ -1,7 +1,7 @@
 <h1>Your Heroes</h1>
-<% @persons.each do |person| %>
-    <h2><% person.name %></h2>
-    <% render partial: 'comicbooks/all_comicbooks', locals: {comicbooks: person.comicbooks }%>
-    
-<% end %>
 
+<ul>
+    <% @persons.each do |person| %>
+        <li><%= link_to person.name, person_path(person) %></li>
+        <% end %>
+</ul>

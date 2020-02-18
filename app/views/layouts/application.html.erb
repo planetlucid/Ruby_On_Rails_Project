@@ -15,7 +15,7 @@
     <body>
         <div class="container purple topBotomBordersIn">
           <a href="/">HOME</a>
-          <a href="/persons">YOUR HERO LIST</a>
+          <a href="/comicbooks">YOUR LIST</a>
           <a href="/comicbooks/new">ADD ENTRY</a>
           <!-- <a href="/persons/new">ADD HERO</a> -->
           <a href="/users/edit">YOUR ACCOUNT</a>
@@ -30,6 +30,7 @@
       <% end %>
     <%= yield %>
   </body>
+  <div class="vertical_spacer"><br></div>
   <div class="vertical_spacer"><br></div>
   <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 </html>
