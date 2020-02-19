@@ -13,6 +13,12 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800&display=swap" rel="stylesheet">
   </head>
     <body>
+    <!-- Flash message goes here -->
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
         <div class="container purple topBotomBordersIn">
           <a href="/">HOME</a>
           <a href="/comicbooks">YOUR LIST</a>

@@ -3,6 +3,9 @@ class Comicbook < ApplicationRecord
   belongs_to :squad
   validates :title, presence: true, uniqueness: { scope: :person }
 
+
+
+
   def person_attributes=(args)
     self.person = Person.find_or_create_by(args)
   end
@@ -10,6 +13,11 @@ class Comicbook < ApplicationRecord
   def squad_attributes=(args)
     self.squad = Squad.find_or_create_by(args)
   end
+  
+ 
+ 
+
+
 end
 
 

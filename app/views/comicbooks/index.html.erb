@@ -1,5 +1,10 @@
 <h1>Your List</h1>
-<!-- <%raw @comicbooks %> -->
+
+<!-- <h4>Search By Team</h4> -->
+    <%= form_tag comicbooks_path, method: :get do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" , :name => nil %>
+    <% end %>
 
     <table >
         <tr >

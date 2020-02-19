@@ -16,7 +16,10 @@ Rails.application.routes.draw do
  # New naming conventions
  
 resources :comicbooks, only: %i[index new create edit update destroy]
-resources :persons
+resources :persons do
+  resources :comicbooks, only: [:index, :new]
+end
+
 resources :squads
  
  

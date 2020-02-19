@@ -3,10 +3,18 @@ class ComicbooksController < ApplicationController
 
 
   def index
-    ## Before nesting
-    @comicbooks = Comicbook.all
-  
-  end
+    if params[:query]
+      @comicbooks = Comicbook.where('lower(description) LIKE ?', '%#{params[:query].downcase}%')
+    else
+      @comicbooks = Comicbook.all
+    end
+    # @comicbooks = Comicbook.all
+  end 
+
+  # def search
+  #   @comicbooks = Comicbook.where("title LIKE ?", OR "plot LIKE ?", "%#{search}%", "%#{search}%")
+
+  # end
 
   def create
     @comicbook = Comicbook.new(comicbook_params)
@@ -37,6 +45,15 @@ class ComicbooksController < ApplicationController
   end
 
   def update
+    @comicbook = Comicbook.find(params[:id])
+    @comicbook.update(comicbook_params)
+    redirect_to comicbooks_path(@comicbook)
+  end
+
+  def destroy
+    @comicbook = Comicbook.find(params[:id])
+    @comicbook.destroy
+    redirect_to comicbooks_url
   end
 
   private
@@ -48,12 +65,14 @@ class ComicbooksController < ApplicationController
   end
 
   def comicbook_params
-    params.require(:comicbook).permit(:title, person_attributes: [:name], squad_attributes: [:name])
+    params.require(:comicbook).permit(:search, :title, person_attributes: [:name], squad_attributes: [:name])
   end
 
-  def destroy
-    @comicbook = Comicbook.find(params[:id])
-    @comicbook.destroy
-    redirect_to comicbooks_path, data: { confirm: "Really?" }
-  end
+ 
+  
+  # def destroy
+  #   @comicbook = Comicbook.find(params[:id])
+  #   @comicbook.destroy
+  #   redirect_to comicbooks_path
+  # end
 end

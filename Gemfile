@@ -8,6 +8,10 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'pry'
 
 #Chart
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development. Not for use in production.
+
+#Chart
 gem 'chartkick'
 gem 'groupdate'
 
