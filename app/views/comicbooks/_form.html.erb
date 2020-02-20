@@ -1,4 +1,5 @@
 <%= form_for comicbook do |f| %>
+    <%= f.hidden_field :person_id %>
     <p>
         <%= f.fields_for :person do |person|  %>
             <%= person.label :person %>

@@ -14,6 +14,12 @@
   </head>
     <body>
     <!-- Flash message goes here -->
+    <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+    <% end %>
+
     <div class="container">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>

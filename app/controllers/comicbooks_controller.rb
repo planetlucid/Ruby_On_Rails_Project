@@ -32,28 +32,45 @@ class ComicbooksController < ApplicationController
   end
 
   def new
-    @comicbook = Comicbook.new
+    @comicbook = Comicbook.new(person_id: params[:person_id])
     @comicbook.person = Person.new
     @comicbook.squad = Squad.new
   end
 
   def edit
-    unless @comicbook = Comicbook.find_by_id(params[:id])
-      @error = ['Comicbook Not Found']
-      redirect_to comicbooks_url
+    if params[:person_id]
+      person = Person.find_by(id: params[:person_id])
+      if person.nil?
+        redirect_to persons_path, alert: "person not found."
+      else
+        @comicbook = person.comicbooks.find_by(id: params[:id])
+        redirect_to person_comicbooks_path(person), alert: "comicbook not found." if @comicbook.nil?
+      end
+    else
+      @comicbook = Comicbook.find(params[:id])
     end
   end
+
+  # def edit
+  #   unless @comicbook = Comicbook.find_by_id(params[:id])
+  #     @error = ['Comicbook Not Found']
+  #     redirect_to comicbooks_url
+  #   end
+  # end
 
   def update
     @comicbook = Comicbook.find(params[:id])
     @comicbook.update(comicbook_params)
-    redirect_to comicbooks_path(@comicbook)
+    redirect_to comicbooks_path(@comicbook),
+    alert: "Deleted"
+    
   end
 
   def destroy
     @comicbook = Comicbook.find(params[:id])
     @comicbook.destroy
-    redirect_to comicbooks_url
+    redirect_to comicbooks_url,
+    alert: "Deleted"
   end
 
   private
@@ -65,7 +82,7 @@ class ComicbooksController < ApplicationController
   end
 
   def comicbook_params
-    params.require(:comicbook).permit(:search, :title, person_attributes: [:name], squad_attributes: [:name])
+    params.require(:comicbook).permit(:person_id, :search, :title, person_attributes: [:name], squad_attributes: [:name])
   end
 
  
