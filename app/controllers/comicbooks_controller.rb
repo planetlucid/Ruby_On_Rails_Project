@@ -3,14 +3,22 @@ class ComicbooksController < ApplicationController
 
 
   def index
-    if params[:query]
-      @comicbooks = Comicbook.where('lower(description) LIKE ?', '%#{params[:query].downcase}%')
+    # @comicbooks = Comicbooks.search(params[:search])
+      @comicbooks = Comicbook.all
+  end 
+
+  def self.search(search)
+    if search
+      comicbook_type = Comicbook.find_by(name: search)
+      if comicbook_type
+        self.where(comicbook_id: comicbook_type)
+      else
+        @comicbooks = Comicbook.all
+      end
     else
       @comicbooks = Comicbook.all
     end
-    # @comicbooks = Comicbook.all
-  end 
-
+  end
   # def search
   #   @comicbooks = Comicbook.where("title LIKE ?", OR "plot LIKE ?", "%#{search}%", "%#{search}%")
 
