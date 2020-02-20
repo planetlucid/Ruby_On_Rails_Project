@@ -3,7 +3,8 @@ class ComicbooksController < ApplicationController
 
 
   def index
-    @comicbooks = Comicbook.search(params[:search])
+    @comicbooks = Comicbook.where(["title LIKE ?","%#{params[:search]}%"])
+    # @comicbooks = Comicbook.search(params[:search])
       # @comicbooks = Comicbook.all
   end 
 
