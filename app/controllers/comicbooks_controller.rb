@@ -3,22 +3,11 @@ class ComicbooksController < ApplicationController
 
 
   def index
-    # @comicbooks = Comicbooks.search(params[:search])
-      @comicbooks = Comicbook.all
+    @comicbooks = Comicbook.search(params[:search])
+      # @comicbooks = Comicbook.all
   end 
 
-  def self.search(search)
-    if search
-      comicbook_type = Comicbook.find_by(name: search)
-      if comicbook_type
-        self.where(comicbook_id: comicbook_type)
-      else
-        @comicbooks = Comicbook.all
-      end
-    else
-      @comicbooks = Comicbook.all
-    end
-  end
+ 
   # def search
   #   @comicbooks = Comicbook.where("title LIKE ?", OR "plot LIKE ?", "%#{search}%", "%#{search}%")
 
@@ -90,7 +79,7 @@ class ComicbooksController < ApplicationController
   end
 
   def comicbook_params
-    params.require(:comicbook).permit(:person_id, :search, :title, person_attributes: [:name], squad_attributes: [:name])
+    params.require(:comicbook).permit(:person_id, :title, :search, :comicbook_id, :name, person_attributes: [:name], squad_attributes: [:name])
   end
 
  
