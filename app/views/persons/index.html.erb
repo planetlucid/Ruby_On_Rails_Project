@@ -2,6 +2,6 @@
 
 <ul>
     <% @persons.each do |person| %>
-        <li><%= link_to person.name, person_path(person) %></li>
+        <li><%= link_to person.name, person_comicbooks_path(person) %></li>
         <% end %>
 </ul>
