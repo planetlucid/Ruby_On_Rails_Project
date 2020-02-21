@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_144238) do
   end
 
   create_table "comics", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
   end
 
   create_table "heros", force: :cascade do |t|

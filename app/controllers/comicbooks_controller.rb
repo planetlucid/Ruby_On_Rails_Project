@@ -1,31 +1,24 @@
 class ComicbooksController < ApplicationController
   before_action :set_comicbook, only: [:show]
-
+  has_scope :search
 
   def index
-    @comicbook = Comicbook.search(params[:search])
-    # @comicbooks = Comicbook.where(["name LIKE ?","%#{params[:search]}%"])
-    #actually search doesn't work yet.
+    # @comicbooks = @comicbooks.filter_by_name(params[:name]) if params[:name].present?
+    # search doesn't work yet.
 
-    if params[:person_id]
-      # This is the nested route, /person/:author_id/comicbooks
-      person = Person.find_by(id: params[:person_id])
-      @comicbooks = person.comicbooks
-
-    else
-      # This is the 'regular' route, /comicbooks
-      @comicbooks = Comicbook.all
+      if params[:person_id]
+        # This is the nested route, /person/:author_id/comicbooks
+        person = Person.find_by(id: params[:person_id])
+        @comicbooks = person.comicbooks
+      elsif params[:search].present?
+        @comicbooks = Comicbook.filter_by_name(params[:search]) 
+      else 
+        @comicbooks = Comicbook.all
     end
-    
-    # @comicbooks = Comicbook.search(params[:search])
-      # @comicbooks = Comicbook.all
-  end 
+end 
 
  
-  # def search
-  #   @comicbooks = Comicbook.where("title LIKE ?", OR "plot LIKE ?", "%#{search}%", "%#{search}%")
 
-  # end
 
   def create
     @comicbook = Comicbook.new(comicbook_params)
@@ -93,7 +86,7 @@ class ComicbooksController < ApplicationController
   end
 
   def comicbook_params
-    params.require(:comicbook).permit(:person_id, :title, :search, :comicbook_id, :name, person_attributes: [:name], squad_attributes: [:name])
+    params.require(:comicbook).permit(:person_id, :starts_with, :title, :search, :comicbook_id, :name, person_attributes: [:name], squad_attributes: [:name])
   end
 
  

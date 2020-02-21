@@ -6,7 +6,7 @@ ruby '2.6.1'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 gem 'pry'
-
+gem 'has_scope'
 #Chart
 gem 'sunspot_rails'
 gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development. Not for use in production.
