@@ -1,19 +1,14 @@
 class ComicbooksController < ApplicationController
-  before_action :set_comicbook, only: [:show, :edit, :update, :destroy] 
-  # before_action :set_person, except: [:new, :create]
- 
+  before_action :set_comicbook, only: [:show]
 
 
   def index
     @comicbooks = Comicbook.where(["title LIKE ?","%#{params[:search]}%"])
-    @person = Person.find_by_id(params[:person_id])
     # @comicbooks = Comicbook.search(params[:search])
       # @comicbooks = Comicbook.all
   end 
 
-  def show
-    @comicbook = Comicbook.find_by_id(params[:id]) 
-  end
+ 
   # def search
   #   @comicbooks = Comicbook.where("title LIKE ?", OR "plot LIKE ?", "%#{search}%", "%#{search}%")
 
@@ -65,8 +60,7 @@ class ComicbooksController < ApplicationController
     @comicbook = Comicbook.find(params[:id])
     @comicbook.update(comicbook_params)
     redirect_to comicbooks_path(@comicbook),
-    # flash.now[:notice] = 'Message sent!'
-    alert: "Updated"
+    alert: "Deleted"
     
   end
 
@@ -79,19 +73,21 @@ class ComicbooksController < ApplicationController
 
   private
 
-  def set_person
-    unless @person = Person.find_by_id(params[:person_id])
-      redirect_to persons_path
-    end
-  end
-
   def set_comicbook
-    unless @comicbook = Comicbook.find_by_id(params[:person_id])
+    unless @comicbook = Comicbook.find_by_id(params[:id])
       redirect_to comicbooks_path
     end
   end
 
   def comicbook_params
-    params.require(:comicbook).permit(:person_id, :title, :search, :comicbook_id, :name, person_attributes: [:name, :id], squad_attributes: [:name])
+    params.require(:comicbook).permit(:person_id, :title, :search, :comicbook_id, :name, person_attributes: [:name], squad_attributes: [:name])
   end
+
+ 
+  
+  # def destroy
+  #   @comicbook = Comicbook.find(params[:id])
+  #   @comicbook.destroy
+  #   redirect_to comicbooks_path
+  # end
 end
