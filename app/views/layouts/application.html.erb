@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1 class="header">Hero List</h1>
+    <h1 class="header"><a class="header" href="/">Hero List</a></h1>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -26,10 +26,10 @@
       <% end %>
     </div>
         <div class="container purple topBotomBordersIn">
-          <a href="/">HOME</a>
-          <a href="/comicbooks">YOUR LIST</a>
+          <!-- <a href="/">HOME</a> -->
+          <a href="/comicbooks">TEAM & COMIC</a>
           <a href="/comicbooks/new">ADD ENTRY</a>
-          <!-- <a href="/persons/new">ADD HERO</a> -->
+          <a href="/persons">HEROES</a>
           <a href="/users/edit">YOUR ACCOUNT</a>
         </div>
     <!-- Error message goes here -->

@@ -3,8 +3,10 @@ class ComicbooksController < ApplicationController
 
 
   def index
-    @comicbooks = Comicbook.where(["title LIKE ?","%#{params[:search]}%"])
-    
+    @comicbook = Comicbook.search(params[:search])
+    # @comicbooks = Comicbook.where(["name LIKE ?","%#{params[:search]}%"])
+    #actually search doesn't work yet.
+
     if params[:person_id]
       # This is the nested route, /person/:author_id/comicbooks
       person = Person.find_by(id: params[:person_id])
