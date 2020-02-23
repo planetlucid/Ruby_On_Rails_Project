@@ -66,7 +66,7 @@ end
     @comicbook = Comicbook.find(params[:id])
     @comicbook.update(comicbook_params)
     redirect_to comicbooks_path(@comicbook),
-    alert: "Deleted"
+    alert: "Edited"
     
   end
 
