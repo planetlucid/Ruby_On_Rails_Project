@@ -3,9 +3,7 @@ class ComicbooksController < ApplicationController
   has_scope :search
 
   def index
-    # @comicbooks = @comicbooks.filter_by_name(params[:name]) if params[:name].present?
-    # search doesn't work yet.
-
+    
       if params[:person_id]
         # This is the nested route, /person/:author_id/comicbooks
         person = Person.find_by(id: params[:person_id])
@@ -15,7 +13,7 @@ class ComicbooksController < ApplicationController
       else 
         @comicbooks = Comicbook.all
     end
-end 
+  end 
 
  
 

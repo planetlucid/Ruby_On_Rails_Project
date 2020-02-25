@@ -1,8 +1,9 @@
 <tr>
     <td><%= comicbook.person.name %></td>
     <td><%= comicbook.squad.name %></td>
-    <td><%= comicbook.title %></td>
-    
+    <!-- <td><%= comicbook.title %></td> -->
+    <td><li><%= link_to comicbook.title, person_comicbooks_url(comicbook) %></li><td></td>
+
     <td><%= link_to "Edit", edit_comicbook_path(comicbook)%></td>
     <td><%= link_to "Delete", comicbook, :confirm => "Really?", :method => :delete %></td>
     
