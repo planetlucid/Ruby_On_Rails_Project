@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Hero List
+Hero List helps you keep track of your favorite heroes & comics.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration_
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Installation
+After cloning this repository, simply run rake setup. If the MySQL gem requires special settings on your platform, please install it first.
