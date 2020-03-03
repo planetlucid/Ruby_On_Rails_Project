@@ -1,0 +1,10 @@
+<h1><%= @squad.name %></h1>
+
+ 
+<p>Squad:</p>
+<% @squad.people.each do |person| %>
+  <div><%= link_to person.name, person_path(person) %></div>
+<% end %>
+
+
+
